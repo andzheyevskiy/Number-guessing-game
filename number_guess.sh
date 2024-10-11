@@ -39,7 +39,7 @@ GUESS_GAME (){
     fi
   else
     echo "$GUESS"
-    GUESS_GAME "That is not an integer, guess again:"
+    GUESS_GAME "That is not an integer, guess again:" "$2"
   fi
 
 }
