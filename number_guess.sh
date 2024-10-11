@@ -32,6 +32,8 @@ read USERNAME
 USER_DATA=$($PSQL "SELECT id, name, games_played, best_game FROM username WHERE name='$USERNAME'")
 
 if [[  -z $USER_DATA  ]]; then
+  INSERT_NEW_USER=$($PSQL "INSERT INTO username(name) VALUES('$USERNAME')")
+  USER_DATA=$($PSQL "SELECT id, name, games_played, best_game FROM username WHERE name='$USERNAME'")
   echo "Welcome, $USERNAME! It looks like this is your first time here."
 
 else
